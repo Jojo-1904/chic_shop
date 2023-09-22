@@ -1,0 +1,45 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Costume{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_admin_costume_index') }}" class="btn btn-dark btn-sm mb-2">Retour à la liste</a>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Costume</h1>
+        {{ include('admin_costume/_delete_form.html.twig') }}
+    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ costume.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ costume.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ costume.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ costume.prix }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ costume.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ costume.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+
+    <a href="{{ path('app_admin_costume_edit', {'id': costume.id}) }}" class="btn btn-success">Modifier</a>
+
+    
+{% endblock %}

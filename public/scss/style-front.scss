@@ -1,0 +1,28 @@
+@import '_variables.scss';
+body{
+    background: url('../images/floor-tile.png');
+    font-family: 'Poppins', sans-serif;
+    color: $texcolor;
+    @for $i from 1 through 6 {
+        h#{$i} {
+            font-family: 'Montserrat', sans-serif; 
+        } 
+    .signature{
+        font-weight: 300;
+    }
+    .img-30{
+        width: 30%;
+    }
+    .cursor-pointer{
+        cursor: pointer;
+    }
+    .avatar{
+        max-width: 30px;
+        max-height: 30px;
+        border-radius: 50%;
+    }
+    }
+}
+main{
+    min-height: calc(100vh - 112px);
+}

@@ -1,6 +1,6 @@
 @import '_variables.scss';
 body{
-    background: url('../images/floor-tile.png');
+    // background: url('../images/floor-tile.png');
     font-family: 'Poppins', sans-serif;
     color: $texcolor;
     @for $i from 1 through 6 {
@@ -20,6 +20,11 @@ body{
         max-width: 30px;
         max-height: 30px;
         border-radius: 50%;
+    }
+    .logo-container {
+        text-align: center;
+        height: 210px;
+        width: 100%;
     }
     }
 }

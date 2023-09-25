@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="container">
+        <section class="row">
+            <div class="col-12">
+                <h1>Panier</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Costume</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for element in data %}
+                            <tr>
+                                <td>{{ element.costume.titre }}</td>
+                                <td>{{ element.costume.prix|format_currency('EUR') }}</td>
+                                <td>{{ element.quantity }}</td>
+                                <td>{{ (element.quantity * element.costume.prix)|format_currency('EUR')  }}</td>
+                                <td>
+                                    <a href="{{ path('app_front_panier_add', {id: element.costume.id}) }}" class="btn btn-success">+</a>
+                                    <a href="{{ path('app_front_panier_remove', {id: element.costume.id}) }}" class="btn btn-warning">-</a>
+                                    <a href="{{ path('app_front_panier_delete', {id: element.costume.id}) }}" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">Votre panier est vide</td>
+                            </tr>    
+                        {% endfor %}
+                    </tbody>
+                    { <tfoot>
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td>{{ total|format_currency('EUR') }}</td>
+                            <td>
+                                <a href="{{ path('app_front_panier_empty') }}" class="btn btn-danger">Vider</a>
+                            </td>
+                        { </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </main>
+{% endblock %}

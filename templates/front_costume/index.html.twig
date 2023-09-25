@@ -30,9 +30,10 @@
     <div class="col-12 col-md-9">
         <div>{{ costume.description|raw }}</div>
         <div>Prix : {{ costume.prix|format_currency('EUR') }}</div>
+        <a href="{{ path('app_front_panier_add', {id: costume.id}) }}" class="btn btn-secondary mt-2">Ajouter au panier</a>
     </div>
     </div>
-{% endblock %}
+    {% endblock %}
 
 {% block javascripts %}
 <script>

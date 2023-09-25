@@ -6,7 +6,7 @@
 <h1>{{ home.titre }}</h1>
 {#  On vérifie si on a des carousels #}
 {% if carousels|length > 0 %}
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="false">
     <div class="carousel-indicators">
         {# On fait une boucle sur le tableau des carousels pour faire les indicateurs #}
         {% for carousel in carousels %}

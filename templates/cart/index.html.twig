@@ -34,14 +34,14 @@
                             </tr>    
                         {% endfor %}
                     </tbody>
-                    { <tfoot>
+                    <tfoot>
                         <tr>
                             <td colspan="3">Total</td>
                             <td>{{ total|format_currency('EUR') }}</td>
                             <td>
                                 <a href="{{ path('app_front_panier_empty') }}" class="btn btn-danger">Vider</a>
                             </td>
-                        { </tr>
+                            </tr>
                     </tfoot>
                 </table>
             </div>

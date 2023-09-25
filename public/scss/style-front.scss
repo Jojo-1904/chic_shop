@@ -27,7 +27,14 @@ body{
         width: 100%;
     }
     }
-}
+    .social-icons{
+        text-align: center;
+        margin-right: 10%;
+    }
+    .container{
+        margin-left: 200px;
+    }
+    }
 main{
     min-height: calc(100vh - 112px);
 }

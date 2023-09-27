@@ -23,7 +23,7 @@
                 <td>{{ image.id }}</td>
                 <td>
                     <a href="{{ asset('/images/costume/' ~  image.imageName) }}" data-lightbox="image.imageName">
-                    <img src="{{ asset('/images/costume/' ~  image.imageName)}}" alt=""image" class="img-list">
+                    <img src="{{ asset('/images/costume/' ~  image.imageName) }}" alt="image" class="img-list">
                     </a>
                 </td>
                 <td>{{ image.updatedAt ? image.updatedAt|date('d-m-Y H:i:s') : '' }}</td>

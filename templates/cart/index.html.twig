@@ -8,6 +8,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>Image</th>
                             <th>Costume</th>
                             <th>Prix</th>
                             <th>Quantité</th>
@@ -18,6 +19,11 @@
                     <tbody>
                         {% for element in data %}
                             <tr>
+                                <td>
+                                    <a  <a href="{{ asset('/images/costume/' ~  element.costume.images[0].imageName) }}" data-lightbox="{{element.costume.titre}}">
+                                    <img src="{{ asset('/images/costume/' ~  element.costume.images[0].imageName) }}" alt="{{element.costume.titre}}" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+                                    </a>
+                                </td>
                                 <td>{{ element.costume.titre }}</td>
                                 <td>{{ element.costume.prix|format_currency('EUR') }}</td>
                                 <td>{{ element.quantity }}</td>

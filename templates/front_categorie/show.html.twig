@@ -43,7 +43,7 @@
         <div class="card-body d-flex justify-content-center">
             <div class="align-self-end text-center mt-2 w-100">
                 <p class="card-text">{{ costume.prix|format_currency('EUR') }}</p>
-                <div class="d-flex flex-wrap justify-content-center w-100">
+                <div class="d-flex flex-wrap justify-content-between w-100">
                     <a href="{{ path('app_front_costume', {slug: costume.slug}) }}" class="btn btn-secondary">Voir</a>
                     {% if app.user is not null %}
                         {% set isInFavori = false %}

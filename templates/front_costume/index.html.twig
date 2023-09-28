@@ -1,55 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ costume.titre }}{% endblock %}
+{% block title %}
+	{{ costume.titre }}
+{% endblock %}
 
 {% block body %}
-<h1>{{ costume.titre }}</h1>
-    <div class="row">
-        <div class="col-12 col-md-3">
-        {# On véririfie si le costume a des images #}
-        {% if costume.images|length > 0 %}
-            {# On affiche la prémière image #}
-            <a href="{{ asset('images/costume/' ~ costume.images[0].imageName) }}" data-lightbox="{{ costume.titre }}">
-            <img src="{{ asset('images/costume/' ~ costume.images[0].imageName) }}" alt="{{ costume.titre }}" class="img-fluid" id="img-big">
-            </a>
-            {# {{ dump(costume.images|length) }} #}
-            {# On vérifie s'il y a plus d'une image dans la collection #}
-            {% if costume.images|length > 1 %}
-            <div class="row justify-content-between">
-                {% for image in costume.images %}
-                    {% if loop.index0 > 0 %}
-                        <div class="img-30 mt-3 cursor-pointer">
-                        <img src="{{ asset('images/costume/' ~ costume.images[loop.index0].imageName) }}" alt="" class="img-fluid">
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endif %}
-    </div>
-    <div class="col-12 col-md-9">
-        <div>{{ costume.description|raw }}</div>
-        <div>Prix : {{ costume.prix|format_currency('EUR') }}</div>
-        <a href="{{ path('app_front_panier_add', {id: costume.id}) }}" class="btn btn-secondary mt-2">Ajouter au panier</a>
-    </div>
-    </div>
-    {% endblock %}
+	<h1>{{ costume.titre }}</h1>
+	<div class="row">
+		<div
+			class="col-12 col-md-3">
+			{# On vérifie si le costume a des images #}
+			{% if costume.images|length > 0 %}
+				{# On affiche la prémière image #}
+				<a href="{{ asset('images/costume/' ~ costume.images[0].imageName) }}" data-lightbox="{{ costume.titre }}">
+					<img src="{{ asset('images/costume/' ~ costume.images[0].imageName) }}" alt="{{ costume.titre }}" class="img-fluid" id="img-big">
+				</a>
+				{# {{ dump(costume.images|length) }} #}
+				{# On vérifie s'il y a plus d'une image dans la collection #}
+				{% if costume.images|length > 1 %}
+					<div class="row justify-content-between">
+						{% for image in costume.images %}
+							{% if loop.index0 > 0 %}
+								<div class="img-30 mt-3 cursor-pointer">
+									<img src="{{ asset('images/costume/' ~ costume.images[loop.index0].imageName) }}" alt="" class="img-fluid">
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			{% endif %}
+		</div>
+		<div class="col-12 col-md-9">
+			<div>{{ costume.description|raw }}</div>
+			<div>Prix :
+				{{ costume.prix|format_currency('EUR') }}</div>
+			<a href="{{ path('app_front_panier_add', {id: costume.id}) }}" class="btn btn-secondary mt-2">Ajouter au panier</a>
+		</div>
+	</div>
+{% endblock %}
 
 {% block javascripts %}
-<script>
-// On récupère les objets de classe cursor-pointer
-$('.cursor-pointer').on('click', function(e){
-    e.stopPropagation();
-    // On récupère la valeur de l'attribut src de l'image cliquée
-    let itemSource = $(this).find('img').attr('src');
-    // On récupère la valeur de l'attribut src de la grande image
-    let currentSource = $('#img-big').attr('src');
-    // On remmplace l'attribut src de la grande immage ppar celui de celle cliquée et on remplace
-    // également l'attribut href de la balise a
-    $('#img-big').attr('src', itemSource);
-    $('#img-big').parent().attr("href", itemSource);
-    // On change le src de l'image cliquée
-    $(this).find('img').attr('src', currentSource);
+	<script>
+		// On récupère les objets de classe cursor-pointer
+$('.cursor-pointer').on('click', function (e) {
+e.stopPropagation();
+// On récupère la valeur de l'attribut src de l'image cliquée
+let itemSource = $(this).find('img').attr('src');
+// On récupère la valeur de l'attribut src de la grande image
+let currentSource = $('#img-big').attr('src');
+// On remmplace l'attribut src de la grande immage par celui de celle cliquée et on remplace
+// également l'attribut href de la balise a
+$('#img-big').attr('src', itemSource);
+$('#img-big').parent().attr("href", itemSource);
+// On change le src de l'image cliquée
+$(this).find('img').attr('src', currentSource);
 });
-</script>
+	</script>
 {% endblock %}

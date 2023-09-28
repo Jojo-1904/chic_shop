@@ -13,7 +13,7 @@ class FrontCostumeController extends AbstractController
     public function index($slug, CostumeRepository $costumeRepository): Response
     {
         return $this->render('front_costume/index.html.twig', [
-            'costume' => $costumeRepository->findOneBy(["slug"=>$slug]),
+            'costume' => $costumeRepository->findOneBy(["slug" => $slug]),
         ]);
     }
 }

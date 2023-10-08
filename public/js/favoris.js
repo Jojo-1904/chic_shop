@@ -1,6 +1,6 @@
 $('.add-favori').off().on('click', function(event){
     let costumeId = $(this).data('costume-id');
-    // On mémorise le bouton clicqué
+    // On mémorise le bouton cliqué
     let button = $(this);
     // On analyse l'icône du bouton pour savoir si on ajoute ou on supprime le costume aux favoris
     // On lance une requête Ajax vers le serveur

@@ -1,35 +1,46 @@
-@import '_variables.scss';
-body{
+@import "_variables.scss";
+body {
     // background: url('../images/floor-tile.png');
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: $texcolor;
     @for $i from 1 through 6 {
         h#{$i} {
-            font-family: 'Montserrat', sans-serif; 
-        } 
-    .signature{
-        font-weight: 300;
+            font-family: "Montserrat", sans-serif;
+        }
+        .signature {
+            font-weight: 300;
+        }
+        .img-30 {
+            width: 30%;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        .avatar {
+            max-width: 30px;
+            max-height: 30px;
+            border-radius: 50%;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            max-width: 100%; /* Ajustez la largeur du logo selon vos besoins */
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px; /* Changer la taille de la police pour les écrans plus petits */
+            }
+        }
+        main {
+            min-height: calc(100vh - 112px);
+        }
+
+        footer {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-top: 20px;
+        }
     }
-    .img-30{
-        width: 30%;
-    }
-    .cursor-pointer{
-        cursor: pointer;
-    }
-    .avatar{
-        max-width: 30px;
-        max-height: 30px;
-        border-radius: 50%;
-    }
-    .logo-container {
-        text-align: center;
-        height: 10px;
-        width: 100%;
-    }
-    }
-    
-    }
-    
-main{
-    min-height: calc(100vh - 112px);
 }

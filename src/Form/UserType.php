@@ -17,11 +17,11 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('avatar', AvatarType::class, ['label'=>false,])
+            ->add('avatar', AvatarType::class, ['label' => false,])
             ->add('email')
             ->remove('roles')
             ->remove('password')
-            ->add('plainPassword', RepeatedType::class,[
+            ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passe doivent étre identiques.',
                 'required' => false,
@@ -41,8 +41,7 @@ class UserType extends AbstractType
             ])
             ->add('tel')
             ->remove('isVerified')
-            ->add('modifier', SubmitType::class, ["attr"=>["class"=>"btn btn-secondary mt-3"]])
-        ;
+            ->add('modifier', SubmitType::class, ["attr" => ["class" => "btn btn-secondary mt-3"]]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

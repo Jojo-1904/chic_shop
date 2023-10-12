@@ -5,7 +5,7 @@
 		<section class="row">
 			<div class="col-12">
 				<h1>Panier</h1>
-				<div class="table-responsive" style="overflow-x: hidden; overflow-y: hidden;">
+				<div class="text-center" class="table-responsive" style="overflow-x: hidden; overflow-y: hidden;">
 					<table class="table">
 						<thead>
 							<tr>
@@ -25,12 +25,10 @@
 											<img src="{{ asset('/images/costume/' ~ element.costume.images[0].imageName) }}" alt="{{element.costume.titre}}" class="img-thumbnail img-fluid" style="max-width: 100px; max-height: 100px;">
 										</a>
 									</td>
-
 									<td>{{ element.costume.titre }}</td>
 									<td>{{ element.costume.prix|format_currency('EUR') }}</td>
 									<td>{{ element.quantity }}</td>
 									<td>{{ (element.quantity * element.costume.prix)|format_currency('EUR')  }}</td>
-
 									<td>
 										<a href="{{ path('app_front_panier_add', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-2">+</a>
 										<a href="{{ path('app_front_panier_remove', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-2">-</a>
@@ -45,9 +43,16 @@
 								</tr>
 							{% endfor %}
 						</tbody>
+						{% set totalQuantity = 0 %}
+						{% for element in data %}
+							{% set totalQuantity = totalQuantity + element.quantity %}
+						{% endfor %}
 						<tfoot>
 							<tr>
-								<td colspan="4">Total</td>
+								<td colspan="3">
+									<strong>TOTAL</strong>
+								</td>
+								<td>{{ totalQuantity }}</td>
 								<td>{{ total|format_currency('EUR') }}</td>
 								<td>
 									<a href="{{ path('app_front_panier_empty') }}" class="btn btn-secondary">Vider</a>

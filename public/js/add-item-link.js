@@ -8,7 +8,6 @@ const addImageFormDeleteLink = (item) => {
 
     removeFormButton.addEventListener('click', (e) => {
         e.preventDefault();
-        // remove the li for the tag form
         // On supprime la li parent du bouton
         item.parentElement.remove();
         // item.remove

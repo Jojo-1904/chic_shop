@@ -10,6 +10,7 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<div class="d-flex justify-content-center w-100">
 				<ul class="navbar-nav w-50">
+
 					<li class="nav-item align-items-center">
 						<a class="nav-link active" aria-current="page" href="{{ path('app_home2') }}">
 							<i class="fa-solid fa-house"></i>
@@ -27,7 +28,7 @@
 						{% else %}
 							<div class="d-flex align-items-center">
 								<span class="text-light"></span>
-								{{ app.user.email }}
+								{# {{ app.user.email }} #}
 								{% if app.user.avatar is not null and app.user.avatar.imageName is not null %}
 									<img src="{{ asset('images/avatar/' ~ app.user.avatar.imageName) }}" alt="avatar" class="avatar">
 								{% endif %}

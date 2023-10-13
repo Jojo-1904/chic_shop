@@ -19,22 +19,24 @@
 						</thead>
 						<tbody>
 							{% for element in data %}
-								<tr>
-									<td>
+								<tr  class="reduced-height">
+									<td class="col-2" style="padding-top: 0; padding-bottom: 0; margin-top: 10px; margin-bottom: 10px;">
 										<a href="{{ asset('/images/costume/' ~ element.costume.images[0].imageName) }}" data-lightbox="{{element.costume.titre}}">
-											<img src="{{ asset('/images/costume/' ~ element.costume.images[0].imageName) }}" alt="{{element.costume.titre}}" class="img-fluid" style="max-width: 100px; max-height: 100px;">
+											<img src="{{ asset('/images/costume/' ~ element.costume.images[0].imageName) }}" alt="{{element.costume.titre}}" class="img-fluid" style="max-width: 100px; max-height: 100px; position: relative; top: 12px;">
 										</a>
 									</td>
-									<td>{{ element.costume.titre }}</td>
-									<td>{{ element.costume.prix|format_currency('EUR') }}</td>
-									<td>{{ element.quantity }}</td>
-									<td>{{ (element.quantity * element.costume.prix)|format_currency('EUR')  }}</td>
+									<td class="text-center" style="padding: 50px 0;">{{ element.costume.titre }}</td>
+									<td class="text-center" style="padding: 50px 0;">{{ element.costume.prix|format_currency('EUR') }}</td>
+									<td class="text-center" style="padding: 50px 0;">{{ element.quantity }}</td>
+									<td class="text-center" style="padding: 50px 0;">{{ (element.quantity * element.costume.prix)|format_currency('EUR')  }}</td>
 									<td>
-										<a href="{{ path('app_front_panier_add', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-2">+</a>
-										<a href="{{ path('app_front_panier_remove', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-2">-</a>
-										<a href="{{ path('app_front_panier_delete', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-2">
-											<i class="fa-regular fa-trash-can"></i>
-										</a>
+										<div class="button-group" style="margin-top: 34px;">
+											<a href="{{ path('app_front_panier_add', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-1">+</a>
+											<a href="{{ path('app_front_panier_remove', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-1">-</a>
+											<a href="{{ path('app_front_panier_delete', {id: element.costume.id}) }}" class="btn btn-unstyled mx-1 mb-1">
+												<i class="fa-regular fa-trash-can"></i>
+											</a>
+										</div>
 									</td>
 								</tr>
 							{% else %}

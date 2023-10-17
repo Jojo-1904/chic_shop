@@ -13,13 +13,13 @@
 								<th>Costume</th>
 								<th>Prix</th>
 								<th>Quantité</th>
-								<th>Total</th>
+								<th>Total(unitaire)</th>
 								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							{% for element in data %}
-								<tr  class="reduced-height">
+								<tr class="reduced-height">
 									<td class="col-2" style="padding-top: 0; padding-bottom: 0; margin-top: 10px; margin-bottom: 10px;">
 										<a href="{{ asset('/images/costume/' ~ element.costume.images[0].imageName) }}" data-lightbox="{{element.costume.titre}}">
 											<img src="{{ asset('/images/costume/' ~ element.costume.images[0].imageName) }}" alt="{{element.costume.titre}}" class="img-fluid" style="max-width: 100px; max-height: 100px; position: relative; top: 12px;">
@@ -51,9 +51,10 @@
 						{% endfor %}
 						<tfoot>
 							<tr>
-								<td colspan="3">
-									<strong>TOTAL</strong>
+								<td class="text-left">
+									<strong>TOTAL(général)</strong>
 								</td>
+								<td colspan="2"></td>
 								<td>{{ totalQuantity }}</td>
 								<td>{{ total|format_currency('EUR') }}</td>
 								<td>
@@ -61,9 +62,9 @@
 								</td>
 							</tr>
 						</tfoot>
-					</table>
-				</div>
-			</div>
-		</section>
-	</main>
-{% endblock %}
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</section></main>{% endblock %}

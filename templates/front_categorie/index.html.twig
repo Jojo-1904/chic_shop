@@ -1,29 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos catégories{% endblock %}
+{% block title %}Nos catégories
+{% endblock %}
 
 {% block body %}
-<h1>Nos catégories</h1>
-<div class="row">
-{% for categorie in categories %}
-<div class="col-12 col-md-3 d-flex align-items-stretch">
-    <div class="card">
-        {% set image = "default.webp" %}
-        {% if categorie.imageName is not null %}
-        {% set image = categorie.imageName %}
-        {% endif %}
-        <img src="{{ asset('images/categorie/' ~ image) }}" class="card-img-top" alt="{{ categorie.nom }}">
-        <div class="card-body d-flex justify-content-center">
-            <div class="align-self-end text-center">
-            <h5 class="card-title">{{ categorie.nom }}</h5>
-            {# <p class="card-text">{{ categorie.description }}</p> #}
-            <a href="{{ path('app_front_categorie', {'slug': categorie.slug}) }}" class="btn btn-secondary">Voir</a>
-            </div>
-        </div>
-    </div>
-</div>
-{% else %}
-Aucune catégorie
-{% endfor %}
-</div>
+	<h1>Nos catégories</h1>
+	<div class="row">
+		{% for categorie in categories %}
+			<div class="col-12 col-md-3 d-flex align-items-stretch">
+				<div class="card">
+					{% set image = "default.webp" %}
+					{% if categorie.imageName is not null %}
+						{% set image = categorie.imageName %}
+					{% endif %}
+					<img src="{{ asset('images/categorie/' ~ image) }}" class="card-img-top" alt="{{ categorie.nom }}">
+					<div class="card-body d-flex justify-content-center">
+						<div class="align-self-end text-center">
+							<h5 class="card-title">{{ categorie.nom }}</h5>
+							{# <p class="card-text">{{ categorie.description }}</p> #}
+							<a href="{{ path('app_front_categorie', {'slug': categorie.slug}) }}" class="btn btn-secondary">Voir</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			Aucune catégorie
+		{% endfor %}
+	</div>
 {% endblock %}

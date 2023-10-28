@@ -19,10 +19,10 @@ class ImageType extends AbstractType
             ->add('imageFile', FileType::class, ['required'=>$options['isNew'], 'label'=>'Image', "attr"=>["class"=>"select-image"]])
             ->remove('imageName')
             ->remove('updatedAt')
-            // L'option dara permet de définir une valeur affichée par défaut
+            // L'option data permet de définir une valeur affichée par défaut
             ->add('rankOrder', IntegerType::class, ['required'=>true, 'data'=>1, "attr"=> ["min"=>1]])
         ;
-        if(!$options["fromBook"])
+        if(!$options["fromCostume"])
             $builder
             // Pour rappel  choice_label permet de choisir le champ qui sera affiché dans le select
             // Auquel cas on n'a pas besoin de la methode __toString() dans l'entité
@@ -34,7 +34,7 @@ class ImageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Image::class,
-            'fromBook'=>false,
+            'fromCostume'=>false,
             'isNew'=>true,
         ]);
     }

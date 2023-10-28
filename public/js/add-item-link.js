@@ -33,7 +33,7 @@ const addFormToCollection = (e) => {
         const container = item.querySelector('.img-form-container');
         addImageFormDeleteLink(container);
         
-         // On récupère l'input de type type file dans la li afin d'initialiser son écouteur d'evenement
+         // On récupère l'input de type file dans la li afin d'initialiser son écouteur d'evenement
         const input = item.querySelector('.select-image');
         // On active l'écouteur d'évènement sur l'input
         activateSelectImage(input);

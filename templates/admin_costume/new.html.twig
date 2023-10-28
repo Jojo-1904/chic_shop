@@ -1,17 +1,17 @@
 {% extends 'base-backend.html.twig' %}
 
-{% block title %}Nouveau Costume{% endblock %}
+{% block title %}Nouveau Costume
+{% endblock %}
 
 {% block body %}
-    <h1>Nouveau Costume</h1>
-    <a href="{{ path('app_admin_costume_index') }}" class="btn btn-dark btn-sm mb-2">Retour à la liste</a>
+	<h1>Nouveau Costume</h1>
+	<a href="{{ path('app_admin_costume_index') }}" class="btn btn-dark btn-sm mb-2">Retour à la liste</a>
 
-    {{ include('admin_costume/_form.html.twig') }}
+	{{ include('admin_costume/_form.html.twig') }}
 
 {% endblock %}
 
 {% block javascripts %}
-<script src="{{ asset('js/image-upload.js') }}"></script>
-<script src="{{ asset('js/add-item-link.js') }}"></script>
+	<script src="{{ asset('js/image-upload.js') }}"></script>
+	<script src="{{ asset('js/add-item-link.js') }}"></script>
 {% endblock %}
-

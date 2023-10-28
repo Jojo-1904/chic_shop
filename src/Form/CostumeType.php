@@ -28,7 +28,8 @@ class CostumeType extends AbstractType
             //https://symfony.com/doc/current/form//form_collections.html
             ->add('images', CollectionType::class, [
                 'entry_type' => ImageType::class,
-                "allow_add" => true, "by_reference" => false, "allow_delete" => true, 'label' => false, 'entry_options' => ['fromBook' => true, 'isNew' => $options['isNew']]
+                "allow_add" => true, "by_reference" => false, "allow_delete" => true,
+                'label' => false, 'entry_options' => ['fromCostume' => true, 'isNew' => $options['isNew']]
             ]);
     }
 

@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FrontCategorieController extends AbstractController
 {
     /**
-     * Fonction qui es appélé par u render controller dans la base et qui permet de générer un menu déroulant avac les catégories
+     * Fonction qui es appélé par un render controller dans la base et qui permet de générer un menu déroulant avac les catégories
      */
     public function renderCategorieDropDown(CategorieRepository $categorieRepository): Response
     {

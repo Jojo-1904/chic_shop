@@ -14,15 +14,15 @@
             {# On vérifie si l'imageName n'est pas null #}
             {% if imageName is not null %}
                 <a href="{{ asset('images/costume/' ~ imageName) }}" data-lightbox="{{ imageName}}" class="d-block me-3">
-                <img src="{{ asset('images/costume/' ~ imageName) }}" alt="" class="img-fluid img-form-livre">
+                <img src="{{ asset('images/costume/' ~ imageName) }}" alt="" class="img-fluid img-form-costume">
                 </a>
             {% endif %}
             </div>
             <div class="col-12 col-md-10">
-                {{ form_label(form.vars.form.children["imageFile"])}}
-                {{ form_widget(form.vars.form.children["imageFile"])}}
-                {{ form_label(form.vars.form.children["rankOrder"])}}
-                {{ form_widget(form.vars.form.children["rankOrder"])}}
+                {{ form_label(form.vars.form.children["imageFile"]) }}
+                {{ form_widget(form.vars.form.children["imageFile"]) }}
+                {{ form_label(form.vars.form.children["rankOrder"]) }}
+                {{ form_widget(form.vars.form.children["rankOrder"]) }}
             </div>
         </div>
     {% endmacro %}

@@ -48,7 +48,8 @@ class FrontUserController extends AbstractController
     }
 
     #[Route('/user', name: 'app_front_user')]
-    public function index(Request $request, EntityManagerInterface $entityManagerInterface, UserPasswordHasherInterface $userPasswordHasherInterface): Response
+    public function index(Request $request, EntityManagerInterface $entityManagerInterface, 
+    UserPasswordHasherInterface $userPasswordHasherInterface): Response
     {
         // On récupère l'utilisateur connecté
         $user = $this->getUser();
@@ -58,11 +59,9 @@ class FrontUserController extends AbstractController
         $form->handleRequest($request);
         // On vérifie que le formulaire est soumis et valide
         if($form->isSubmitted() && $form->isValid()){
-            // dd($form->getData()); // Récupérer l'instance du User mais pas les propriétés mappede false
-            // dd($form->all()); // Récupérer les données (champs) du formulaire y compris les mappede fasle
-            // dd($form->get('plainPassword')->getData()); // On récupère les données d'un champ en particulier les mappede false
-            // dd($request->request->get('plainPassword')); // On récupère la valeur d'un champ non pas dans le fomulaire,
-            // mais dans la requête. $request->request recupère les données de la requête POST pour la requête GET il faut
+        
+            // mais dans la requête. $request->request recupère les données de la requête POST 
+            //pour la requête GET il faut
             // utiliser $request->query
             if(!is_null($request->request->get('plainPassword'))){
                 $user->setPassword($userPasswordHasherInterface->hashPassword($user, $request->get('plainPassword')));
